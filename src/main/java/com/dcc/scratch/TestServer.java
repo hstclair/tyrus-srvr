@@ -11,14 +11,16 @@ public class TestServer {
 
     public void runServer() {
 
-        Server server = new Server("localhost", 8025, "/websockets", null, EchoEndpoint.class);
+
+        Server server = new Server("localhost", 8025, "/websockets", null, ProgrammaticServerApplicationConfig.class);
+//        Server server = new Server("localhost", 8025, "/websockets", null, EchoEndpoint.class);
 
         try {
             server.start();
 
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-            System.out.print("Please press <Enter> to stop the server.");
+            System.out.print("Please press <Enter> to stop the server.\n");
             reader.readLine();
         } catch (IOException | DeploymentException ex) {
             ex.printStackTrace();
